@@ -1,0 +1,26 @@
+{
+  "name": "token-css-kit",
+  "version": "1.0.0",
+  "description": "AI-Native Styling Engine with high semantic density",
+  "main": "core/runtime.js",
+  "files": [
+    "core",
+    "docs/syntax.md"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "css",
+    "ai-native",
+    "token-css",
+    "styling",
+    "semantic-density"
+  ],
+  "author": "TungNS",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/token-css"
+  }
+}

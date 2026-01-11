@@ -35,9 +35,14 @@ Start writing in High Semantic Density:
 Token CSS is pre-configured to work with the leading AI coding agents:
 
 - **Cursor**: Rules located in `.cursor/rules/token-css.mdc`.
+- **GitHub Copilot**: Instructions in `.github/copilot-instructions.md`.
 - **Anti-Gravity**: Workflows located in `.agent/workflows/style-ui.md`.
 - **Windsurf**: Configuration in `.windsurf/rules/token-styling.md`.
 - **Claude Code**: Project instructions in `.claudecode/instructions.md`.
+
+## 📦 Distribution
+- **NPM**: See [NPM Publishing Guide](docs/publishing.md) for instructions on how to publish this library.
+
 
 ## 🚀 How to use
 Simply tell your favorite AI agent: *"Style this using Token CSS paradigm. Refer to the project documentation."*
