@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../core/runtime.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background: #fff;
+            font-family: system-ui;
+        }
+    </style>
+</head>
+
+<body class="L(p:8) T(c:#111)">
+
+    <header class="L(m:0/0/12/0)">
+        <h1 class="T(sz:32 w:9b)">Financial Portfolio</h1>
+        <p class="T(c:#666)">Real-time asset tracking.</p>
+    </header>
+
+    <div class="L(dir:col g:8)">
+        <!-- Summary Cards -->
+        <div class="L(grd:1) M(md:L(grd:3)) L(g:6)">
+            <div class="L(p:6) S(bg:#f8fafc rad:xl brdr:1/sol/#e2e8f0)">
+                <div class="T(sz:12 c:#64748b w:6b)">EQUITY</div>
+                <div class="T(sz:24 w:7b)">$42,850.00</div>
+            </div>
+            <!-- Additional metrics... -->
+        </div>
+
+        <!-- Asset Table -->
+        <div class="L(dir:col) S(brdr:1/sol/#eee rad:xl) L(overflow:hidden)">
+            <!-- Header -->
+            <div class="L(dir:row x:b p:4) S(bg:#fcfcfc brdr:0/0/1/sol/#eee) T(sz:12 w:7b c:#888)">
+                <div class="L(w:1/2)">ASSET</div>
+                <div class="L(w:1/4) T(a:r)">PRICE</div>
+                <div class="L(w:1/4) T(a:r)">24H</div>
+            </div>
+            <!-- Row 1 -->
+            <div class="L(dir:row x:b p:5) S(brdr:0/0/1/sol/#f5f5f5) X(hvr:S(bg:#fafafa)) A(dur:150)">
+                <div class="L(w:1/2) T(w:6b)">BTC (Bitcoin)</div>
+                <div class="L(w:1/4) T(a:r)">$64,200.50</div>
+                <div class="L(w:1/4) T(a:r c:#10b981)">+2.45%</div>
+            </div>
+            <!-- Row 2 -->
+            <div class="L(dir:row x:b p:5) X(hvr:S(bg:#fafafa)) A(dur:150)">
+                <div class="L(w:1/2) T(w:6b)">ETH (Ethereum)</div>
+                <div class="L(w:1/4) T(a:r)">$3,450.20</div>
+                <div class="L(w:1/4) T(a:r c:#ef4444)">-1.12%</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

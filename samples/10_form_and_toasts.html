@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../core/runtime.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background: #0f172a;
+            color: #fff;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body class="L(dir:col p:10 g:10)">
+
+    <!-- Login Form -->
+    <div class="L(w:96 m:0/auto p:8 g:6) S(bg:#1e293b rad:2xl shd:2)">
+        <h1 class="T(sz:24 w:8b)">Welcome Back</h1>
+        <div class="L(dir:col g:4)">
+            <div class="L(dir:col g:1)">
+                <label class="T(sz:12 c:#94a3b8 w:6b)">EMAIL</label>
+                <input class="L(p:3) S(bg:#0f172a brdr:1/sol/#334155 rad:lg) T(c:#fff)">
+            </div>
+            <button
+                class="L(p:3) S(bg:#38bdf8 rad:lg) T(c:#0f172a w:8b) X(hvr:A(trnsf:sc:1.02) S(bg:#7dd3fc)) A(dur:200)">LOGIN</button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="L(pos:fixed b:10 r:10 p:4/6 dir:row y:cntr g:4) S(bg:#1e293b brdr:1/sol:#22c55e rad:xl shd:2)">
+        <div class="L(w:2 h:2) S(bg:#22c55e rad:f)"></div>
+        <div class="T(sz:14)">System synchronized successfully.</div>
+    </div>
+
+</body>
+
+</html>

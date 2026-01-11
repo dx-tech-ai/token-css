@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../core/runtime.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body class="L(dir:col h:v) S(bg:#050505) T(c:#eee)">
+
+    <div class="L(dir:row h:1)">
+        <!-- Sidebar -->
+        <div class="L(w:16 h:1) S(bg:#111 brdr:0/1/0/sol/#222) L(dir:col y:cntr p:8/0 g:8)">
+            <div class="L(w:10 h:10) S(bg:#3b82f6 rad:lg)"></div>
+            <div class="L(w:8 h:8) S(bg:#222 rad:md)"></div>
+            <div class="L(w:8 h:8) S(bg:#222 rad:md)"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="L(w:1 p:8 g:8 dir:col)">
+            <header class="L(dir:row x:b)">
+                <div class="T(sz:24 w:7b)">Network Status</div>
+                <div class="L(dir:row g:4)">
+                    <div class="L(p:1/3) S(bg:#22c55e rad:f) T(sz:10 c:#000 w:8b)">STABLE</div>
+                </div>
+            </header>
+
+            <!-- Metrics -->
+            <div class="L(grd:3 g:4)">
+                <div class="L(p:6) S(bg:#111 rad:xl brdr:1/sol/#222)">
+                    <div class="T(sz:12 c:#777)">LATENCY</div>
+                    <div class="T(sz:24 c:#3b82f6)">24ms</div>
+                </div>
+                <!-- More metric cards... -->
+            </div>
+
+            <!-- Terminal -->
+            <div class="L(w:1 h:64) S(bg:#000 rad:lg brdr:1/sol/#333 p:4) T(f:mono sz:12 c:#0f0)">
+                > system.init()...<br>
+                > loading token_css_core_v1.0...<br>
+                > status: optimal
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

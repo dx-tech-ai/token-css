@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../core/runtime.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background: #0f1012;
+            font-family: 'Inter', system-ui;
+        }
+    </style>
+</head>
+
+<body class="L(dir:row h:v w:1)">
+
+    <!-- Sidebar (Contacts) -->
+    <aside class="L(w:1) M(md:L(w:80)) S(bg:#1a1b1e brdr:0/1/0/sol/#2c2d30) L(dir:col)">
+        <header class="L(p:6) T(sz:20 w:7b c:#fff)">Messages</header>
+        <div class="L(dir:col g:1 p:2)">
+            <!-- Active Contact -->
+            <div class="L(dir:row y:cntr g:3 p:3) S(bg:#2c2d30 rad:xl)">
+                <div class="L(w:12 h:12) S(bg:#3b82f6 rad:f)"></div>
+                <div class="L(dir:col)">
+                    <div class="T(sz:14 w:6b c:#fff)">Satoshi AI</div>
+                    <div class="T(sz:12 c:#888)">Status: Optimal</div>
+                </div>
+            </div>
+            <!-- Contact 2 -->
+            <div class="L(dir:row y:cntr g:3 p:3) X(hvr:S(bg:#2c2d30 rad:xl)) A(dur:200)">
+                <div class="L(w:12 h:12) S(bg:#444 rad:f)"></div>
+                <div class="T(sz:14 w:6b c:#ccc)">Neural Link</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Chat Area -->
+    <main class="L(w:1 h:1) L(dir:col)">
+        <!-- Chat Header -->
+        <header class="L(p:4/6 x:b y:cntr) S(bg:#1a1b1e brdr:0/0/1/sol/#2c2d30)">
+            <div class="L(dir:row y:cntr g:3)">
+                <div class="L(w:10 h:10) S(bg:#3b82f6 rad:f)"></div>
+                <div class="T(sz:16 w:6b c:#fff)">Satoshi AI</div>
+            </div>
+            <div class="T(c:#888)">...</div>
+        </header>
+
+        <!-- Messages Flow -->
+        <section class="L(w:1 h:1 p:6 g:4) L(dir:col)">
+            <!-- Receiver -->
+            <div class="L(dir:row g:3)">
+                <div class="L(p:3/4) S(bg:#2c2d30 rad:xl/xl/xl/0) T(sz:14 c:#eee)">How can I optimize your context
+                    window?</div>
+            </div>
+            <!-- Sender -->
+            <div class="L(dir:row-rev g:3)">
+                <div class="L(p:3/4) S(bg:#3b82f6 rad:xl/xl/0/xl) T(sz:14 c:#fff)">Use Token CSS Scopes for all UI
+                    elements.</div>
+            </div>
+        </section>
+
+        <!-- Input Box -->
+        <footer class="L(p:6) S(bg:#1a1b1e)">
+            <div class="L(dir:row g:2 p:2) S(bg:#2c2d30 rad:xl)">
+                <input class="L(w:1 p:1/2) S(bg:none brdr:none outline:none) T(c:#fff sz:14)"
+                    placeholder="Type a message...">
+                <button
+                    class="L(p:2/4) S(bg:#3b82f6 rad:lg) T(c:#fff w:7b) X(hvr:A(trnsf:sc:1.1)) A(dur:200)">SEND</button>
+            </div>
+        </footer>
+    </main>
+
+</body>
+
+</html>
