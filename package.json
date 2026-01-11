@@ -1,5 +1,5 @@
 {
-  "name": "token-css-kit",
+  "name": "token-css",
   "version": "0.1.0-beta",
   "description": "AI-Native Styling Engine with high semantic density",
   "main": "core/runtime.js",
@@ -17,10 +17,10 @@
     "styling",
     "semantic-density"
   ],
-  "author": "TungNS",
+  "author": "DX Tech - TungNS",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/token-css"
+    "url": "https://github.com/dx-tech-ai/token-css"
   }
 }
