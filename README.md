@@ -43,6 +43,9 @@ Token CSS is pre-configured to work with the leading AI coding agents:
 ## 📦 Distribution
 - **NPM**: See [NPM Publishing Guide](docs/publishing.md) for instructions on how to publish this library.
 
+## 🔄 Migration
+Moving from Tailwind? Check out our [Migration Guide](docs/migration.md) for strategies on both simple and enterprise-scale projects.
+
 
 ## 🚀 How to use
 Simply tell your favorite AI agent: *"Style this using Token CSS paradigm. Refer to the project documentation."*
