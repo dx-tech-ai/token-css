@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Showcase - Token CSS</title>
+    <script src="../core/runtime.js"></script>
+    <link rel="stylesheet" href="../core/animations.css">
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .section-title {
+            padding: 40px 40px 0;
+            font-size: 24px;
+            color: #6366f1;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="L(dir:col x:cntr y:cntr p:10) S(bg:#1e293b)">
+        <h1 class="T(sz:48 w:7b) A(preset:bounce-in)">Motion Design Showcase</h1>
+        <p class="T(sz:18 c:#94a3b8) A(preset:slide-up)">Smooth, High Semantic Density Animations</p>
+    </div>
+
+    <div class="section-title">Micro-Interactions</div>
+    <div class="grid">
+        <!-- Loading Spinner -->
+        <div class="L(dir:col x:cntr y:cntr g:4) S(bg:#1e293b rad:xl p:10)">
+            <div class="L(w:40 h:40) S(brdr:4/solid/#334155) T(c:#6366f1) rad:f A(preset:spin)"
+                style="border-top-color: #6366f1;"></div>
+            <div class="T(sz:14 c:#94a3b8)">Processing...</div>
+        </div>
+
+        <!-- Float & Pulse -->
+        <div class="L(dir:col x:cntr y:cntr g:4) S(bg:#1e293b rad:xl p:10)">
+            <div class="L(w:60 h:60) S(bg:#6366f1 rad:f) A(preset:float)"></div>
+            <div class="T(sz:14 c:#94a3b8)">Floating Element</div>
+        </div>
+
+        <!-- Glow Effect -->
+        <div class="L(dir:col x:cntr y:cntr g:4) S(bg:#1e293b rad:xl p:10)">
+            <div class="L(p:4/8) S(bg:#6366f1 rad:md) T(c:#fff w:7b) A(preset:glow)">NEON GLOW</div>
+            <div class="T(sz:14 c:#94a3b8)">Ambient Light Animation</div>
+        </div>
+
+        <!-- Shimmer Skeleton -->
+        <div class="L(dir:col g:3) S(bg:#1e293b rad:xl p:10)">
+            <div class="L(h:20 w:150) S(bg:#334155 rad:md) A(preset:shimmer)"></div>
+            <div class="L(h:12 w:1) S(bg:#334155 rad:md) A(preset:shimmer)"></div>
+            <div class="L(h:12 w:0.8) S(bg:#334155 rad:md) A(preset:shimmer)"></div>
+            <div class="T(sz:14 c:#94a3b8 m:t:2)">Skeleton Loading</div>
+        </div>
+    </div>
+
+    <div class="section-title">Interactive Cards</div>
+    <div class="grid">
+        <div class="L(dir:col g:4) S(bg:#1e293b rad:xl p:6 brdr:1/solid/#334155) X(hvr:S(bg:#334155)) A(dur:300)">
+            <div class="L(h:40 w:40) S(bg:#10b981 rad:md) A(preset:pulse)"></div>
+            <div class="T(sz:20 w:7b)">Smooth Hover</div>
+            <div class="T(sz:14 c:#94a3b8)">This card transitions its background color and has a pulsing icon.</div>
+        </div>
+
+        <div class="L(dir:col g:4) S(bg:#1e293b rad:xl p:6 brdr:1/solid/#334155) X(hvr:A(trnsf:sc:1.05)) A(dur:300)">
+            <div class="L(h:40 w:40) S(bg:#f43f5e rad:md)"></div>
+            <div class="T(sz:20 w:7b)">Scale Interaction</div>
+            <div class="T(sz:14 c:#94a3b8)">Hover to see the high-density scale transformation in action.</div>
+        </div>
+    </div>
+
+    <script src="../core/inspector.js"></script>
+</body>
+
+</html>

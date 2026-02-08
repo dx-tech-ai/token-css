@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token CSS Playground</title>
+    <script src="../core/config.js"></script>
+    <script src="../core/runtime.js"></script>
+    <link rel="stylesheet" href="../core/animations.css">
+    <style>
+        body { font-family: -apple-system, system-ui, sans-serif; background: #0f172a; color: white; margin: 0; display: flex; height: 100vh; }
+        .editor { width: 40%; border-right: 1px solid #334155; display: flex; flex-direction: column; }
+        .preview { width: 60%; padding: 40px; display: flex; align-items: center; justify-content: center; background: #1e293b; position: relative; }
+        textarea { flex: 1; background: #0f172a; color: #38bdf8; border: none; padding: 20px; font-family: 'Fira Code', monospace; font-size: 14px; outline: none; resize: none; }
+        .label { padding: 10px 20px; background: #334155; font-size: 12px; font-weight: bold; text-transform: uppercase; color: #94a3b8; }
+        #render-target { width: 100%; transition: all 0.3s; }
+        .toolbar { padding: 10px 20px; background: #1e293b; border-bottom: 1px solid #334155; display: flex; gap: 10px; }
+        button { background: #6366f1; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+        button:hover { background: #4f46e5; }
+    </style>
+</head>
+<body>
+    <div class="editor">
+        <div class="label">Live Token CSS Editor</div>
+        <div class="toolbar">
+            <button onclick="apply()">Apply Changes</button>
+            <button onclick="insert('L(dir:col x:cntr y:cntr)')">Layout</button>
+            <button onclick="insert('S(bg:primary rad:md)')">Skin</button>
+            <button onclick="insert('T(sz:24 c:#fff)')">Type</button>
+        </div>
+        <textarea id="input" spellcheck="false" placeholder="Enter Token CSS classes here...">
+<div class="L(dir:col g:4 x:cntr) S(bg:#1e293b rad:xl p:8) A(preset:float)">
+    <div class="T(sz:32 c:#6366f1 w:7b)">Token CSS</div>
+    <div class="T(sz:16 c:#94a3b8)">High Semantic Density Styling</div>
+    <button class="L(p:2/6) S(bg:#6366f1 rad:md) T(c:#fff) X(hvr:S(bg:#4f46e5)) A(dur:200)">
+        Try Hovering Me
+    </button>
+</div>
+        </textarea>
+        <div class="label">Tailwind to Token Converter (WIP)</div>
+        <div style="padding: 20px; font-size: 12px; color: #64748b;">
+            Input: flex flex-col items-center gap-4<br>
+            Output: <span style="color: #10b981;">L(dir:col y:cntr g:4)</span>
+        </div>
+    </div>
+    <div class="preview">
+        <div id="render-target"></div>
+    </div>
+
+    <script>
+        const input = document.getElementById('input');
+        const target = document.getElementById('render-target');
+
+        function apply() {
+            target.innerHTML = input.value;
+            // Re-trigger Token CSS since it's dynamic
+            if (window.applyTokenCSS) window.applyTokenCSS();
+            // Or if in global scope
+            const event = new Event('DOMContentLoaded');
+            window.dispatchEvent(event);
+        }
+
+        function insert(text) {
+            const start = input.selectionStart;
+            const end = input.selectionEnd;
+            input.value = input.value.substring(0, start) + text + input.value.substring(end);
+            apply();
+        }
+
+        apply();
+    </script>
+    <script src="../core/inspector.js"></script>
+</body>
+</html>

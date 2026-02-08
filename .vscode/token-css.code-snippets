@@ -1,0 +1,37 @@
+{
+    "Layout Scope": {
+        "prefix": "L(",
+        "body": [
+            "L(dir:${1|col,row|} p:${2:4} g:${3:2})"
+        ],
+        "description": "Token CSS Layout Scope"
+    },
+    "Skin Scope": {
+        "prefix": "S(",
+        "body": [
+            "S(bg:${1:#ffffff} rad:${2|md,xl,f|} shd:${3|1,2|})"
+        ],
+        "description": "Token CSS Skin Scope"
+    },
+    "Typography Scope": {
+        "prefix": "T(",
+        "body": [
+            "T(sz:${1:16} c:${2:#000} w:${3|4b,7b,5b|})"
+        ],
+        "description": "Token CSS Typography Scope"
+    },
+    "Interaction Scope": {
+        "prefix": "X(",
+        "body": [
+            "X(hvr:S(bg:${1:color}))"
+        ],
+        "description": "Token CSS Interaction Scope"
+    },
+    "Animation Scope": {
+        "prefix": "A(",
+        "body": [
+            "A(dur:${1:300} trnsf:sc:${2:1.05})"
+        ],
+        "description": "Token CSS Animation Scope"
+    }
+}

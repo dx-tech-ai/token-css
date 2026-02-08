@@ -1,0 +1,28 @@
+{
+    "name": "Token CSS HSD Brief",
+    "version": "1.0",
+    "description": "High Semantic Density (HSD) rules for AI Agents",
+    "rules": {
+        "scopes": {
+            "L": "Layout (flex, padding, margin, gap, width, height, position)",
+            "S": "Skin (background, border-radius, border, shadow)",
+            "T": "Typography (font-size, color, font-weight)",
+            "X": "Interactions (hvr: hover, actv: active, fcs: focus)",
+            "M": "Media Queries (sm: 640px, md: 768px, lg: 1024px)",
+            "A": "Animations (duration, transform:scale)"
+        },
+        "shorthands": {
+            "dir:col": "flex-direction: column",
+            "dir:row": "flex-direction: row",
+            "x:cntr": "justify-content: center",
+            "y:cntr": "align-items: center",
+            "p:N": "padding: N * 0.25rem",
+            "m:N": "margin: N * 0.25rem",
+            "rad:md": "border-radius: 8px",
+            "rad:f": "border-radius: 9999px",
+            "w:1": "width: 100%",
+            "h:1": "height: 100%"
+        },
+        "optimization_goal": "Reduce token count by 50% compared to Tailwind CSS"
+    }
+}

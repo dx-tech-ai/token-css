@@ -4,14 +4,31 @@
  */
 
 (function () {
+  /**
+   * Main function to scan DOM and apply Token CSS styles.
+   * @returns {void}
+   */
   function applyTokenCSS() {
+    /** @type {NodeListOf<HTMLElement>} */
     const elements = document.querySelectorAll('[class*="("]');
     const styleTag = document.createElement('style');
     let cssRules = '';
 
+    const config = window.TokenCSSConfig || {};
+    const colors = config.colors || {};
+    const spUnit = config.spacingUnit || 0.25;
+
+    /** @type {Record<string, string>} */
     const mapL = { 'dir:col': 'flex-direction:column', 'dir:row': 'flex-direction:row', 'x:cntr': 'justify-content:center', 'x:f': 'justify-content:flex-start', 'x:e': 'justify-content:flex-end', 'x:b': 'justify-content:space-between', 'y:cntr': 'align-items:center', 'w:1': 'width:100%', 'h:v': 'height:100vh', 'h:1': 'height:100%' };
+    /** @type {Record<string, string>} */
     const mapS = { 'glass': 'backdrop-filter:blur(10px);background:rgba(255,255,255,0.05);', 'shd:1': 'box-shadow:0 4px 6px -1px rgba(0,0,0,0.1)', 'shd:2': 'box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)' };
 
+    /**
+     * Processes individual tokens based on their scope.
+     * @param {'L'|'S'|'T'|'A'} scope - The functional scope (Layout, Skin, Typography, Animation).
+     * @param {string} tokens - The space-separated token string.
+     * @returns {string} - Generated CSS rules.
+     */
     const processTokens = (scope, tokens) => {
       let res = '';
       if (scope === 'L') {
@@ -20,15 +37,15 @@
           if (mapL[t]) res += mapL[t] + ';';
           else if (t.startsWith('p:')) {
             const v = t.split(':')[1];
-            res += `padding:${v.includes('/') ? v.split('/').map(x => x * 0.25 + 'rem').join(' ') : v * 0.25 + 'rem'};`;
+            res += `padding:${v.includes('/') ? v.split('/').map(x => Number(x) * spUnit + 'rem').join(' ') : Number(v) * spUnit + 'rem'};`;
           }
           else if (t.startsWith('m:')) {
             const v = t.split(':')[1];
-            res += `margin:${v.includes('/') ? v.split('/').map(x => x * 0.25 + 'rem').join(' ') : v * 0.25 + 'rem'};`;
+            res += `margin:${v.includes('/') ? v.split('/').map(x => Number(x) * spUnit + 'rem').join(' ') : Number(v) * spUnit + 'rem'};`;
           }
-          else if (t.startsWith('g:')) res += `gap:${t.split(':')[1] * 0.25}rem;`;
-          else if (t.startsWith('w:')) res += `width:${t.split(':')[1] === '1' ? '100%' : t.split(':')[1].replace('v', 'vw').endsWith('%') ? t.split(':')[1] : isNaN(t.split(':')[1]) ? t.split(':')[1] : t.split(':')[1] + 'px'};`;
-          else if (t.startsWith('h:')) res += `height:${t.split(':')[1] === '1' ? '100%' : t.split(':')[1].replace('v', 'vh').endsWith('%') ? t.split(':')[1] : isNaN(t.split(':')[1]) ? t.split(':')[1] : t.split(':')[1] + 'px'};`;
+          else if (t.startsWith('g:')) res += `gap:${Number(t.split(':')[1]) * spUnit}rem;`;
+          else if (t.startsWith('w:')) res += `width:${t.split(':')[1] === '1' ? '100%' : t.split(':')[1].replace('v', 'vw').endsWith('%') ? t.split(':')[1] : isNaN(Number(t.split(':')[1])) ? t.split(':')[1] : t.split(':')[1] + 'px'};`;
+          else if (t.startsWith('h:')) res += `height:${t.split(':')[1] === '1' ? '100%' : t.split(':')[1].replace('v', 'vh').endsWith('%') ? t.split(':')[1] : isNaN(Number(t.split(':')[1])) ? t.split(':')[1] : t.split(':')[1] + 'px'};`;
           else if (t.startsWith('pos:')) res += `position:${t.split(':')[1] === 'rel' ? 'relative' : t.split(':')[1] === 'abs' ? 'absolute' : 'fixed'};`;
           else if (t === 'r:0') res += 'right:0;';
           else if (t === 'b:0') res += 'bottom:0;';
@@ -58,6 +75,12 @@
       return res;
     };
 
+    /**
+     * Parses the className string to extract Token CSS scopes.
+     * @param {string} str - The class string containing L(...), S(...), etc.
+     * @param {string} currentSelector - The CSS selector for the current element.
+     * @returns {string} - Combined CSS content.
+     */
     const parse = (str, currentSelector) => {
       const regex = /([LSTXMA])\((.*?)\)/g;
       let match;
@@ -65,18 +88,21 @@
       while ((match = regex.exec(str)) !== null) {
         const [full, scope, content] = match;
         if (['L', 'S', 'T', 'A'].includes(scope)) {
+          // @ts-ignore
           baseCSS += processTokens(scope, content);
         } else if (scope === 'X') {
           const idx = content.indexOf(':');
           const state = content.substring(0, idx);
           const inner = content.substring(idx + 1);
           const stateMap = { hvr: ':hover', actv: ':active', fcs: ':focus' };
+          // @ts-ignore
           cssRules += `${currentSelector}${stateMap[state]} { ${parse(inner, currentSelector)} }\n`;
         } else if (scope === 'M') {
           const idx = content.indexOf(':');
           const bp = content.substring(0, idx);
           const inner = content.substring(idx + 1);
           const bpMap = { sm: '640px', md: '768px', lg: '1024px' };
+          // @ts-ignore
           cssRules += `@media (min-width: ${bpMap[bp]}) { ${currentSelector} { ${parse(inner, currentSelector)} } }\n`;
         }
       }
@@ -94,3 +120,4 @@
   }
   window.addEventListener('DOMContentLoaded', applyTokenCSS);
 })();
+

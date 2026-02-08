@@ -1,0 +1,85 @@
+/* Token CSS Animation Presets */
+
+@keyframes tk-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes tk-bounce-in {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes tk-slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes tk-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(99, 102, 241, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+}
+
+.A\(preset\:shimmer\) {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background-size: 200% 100%;
+    animation: tk-shimmer 2s infinite;
+}
+
+.A\(preset\:float\) {
+    animation: tk-float 3s ease-in-out infinite;
+}
+
+.A\(preset\:pulse\) {
+    animation: tk-pulse-soft 2s infinite;
+}
+
+.A\(preset\:spin\) {
+    animation: tk-spin 1s linear infinite;
+}
+
+.A\(preset\:bounce-in\) {
+    animation: tk-bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.A\(preset\:slide-up\) {
+    animation: tk-slide-up 0.5s ease-out;
+}
+
+.A\(preset\:glow\) {
+    animation: tk-glow 2s infinite;
+}
