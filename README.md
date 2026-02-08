@@ -46,9 +46,6 @@ Token CSS now includes first-class TypeScript support without requiring a build 
 - **Type Definitions**: See `core/runtime.d.ts` for explicit types.
 - **TS Integrations**: Examples for type-safe usage in `integrations/typescript/`.
 
-## 📦 Distribution
-- **NPM**: See [NPM Publishing Guide](docs/publishing.md) for instructions on how to publish this library.
-
 ## 🔄 Migration
 Moving from Tailwind? Check out our [Migration Guide](docs/migration.md) for strategies on both simple and enterprise-scale projects.
 
